@@ -306,6 +306,11 @@ After :ref:`preprocessing <asl_preproc>`, the pairs of labeled and control image
       Slice time-shifted post-labeling delay values plotted next to a corresponding delta-M volume.
 
 
+.. topic:: :math:`M_{0}` scaling
+
+   The M0 value will be scaled according to :footcite:p:`ccavucsouglu2009comparison`.
+
+
 Single-Delay ASL
 ================
 
@@ -339,7 +344,9 @@ model :footcite:p:`alsop_recommended_2015`.
    ASLPrep infers this automatically based on the magnetic field strength
    :footcite:p:`wright2008water`.
 
-   :math:`M_{0}` : Fully relaxed, equilibrium tissue magnetization.
+   :math:`M_{0}` : Fully relaxed, equilibrium magnetization of tissue.
+
+   :math:`M_{0B}` : Fully relaxed, equilibrium magnetization of arterial blood.
 
    :math:`\Delta{TI}` : Post-labeling delay minus bolus cutoff delay time, in seconds.
    Per :footcite:t:`alsop_recommended_2015`, this is QUIPSS II's equivalent to (P)CASL's :math:`w`.
