@@ -30,6 +30,7 @@ def collect_data(
         'roi': {'datatype': 'anat', 'suffix': 'roi'},
         'sbref': {'datatype': 'perf', 'suffix': 'sbref'},
         'asl': {'datatype': 'perf', 'suffix': 'asl'},
+        't1map': {'datatype': 'anat', 'suffix': 'T1map'},
     }
 
     bids_filters = bids_filters or {}

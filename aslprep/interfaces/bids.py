@@ -46,6 +46,7 @@ class _BIDSDataGrabberOutputSpec(TraitedSpec):
     pet = OutputMultiObject(desc='output PET images')
     dwi = OutputMultiObject(desc='output DWI images')
     asl = OutputMultiObject(desc='output ASL images')
+    t1map = OutputMultiObject(desc='output T1map images')
 
 
 class BIDSDataGrabber(SimpleInterface):
@@ -94,7 +95,7 @@ class BIDSDataGrabber(SimpleInterface):
                 f'No ASL images found for subject sub-{self.inputs.subject_id}'
             )
 
-        for imtype in ['bold', 't2w', 'flair', 'fmap', 'sbref', 'roi', 'pet', 'asl']:
+        for imtype in ['bold', 't2w', 'flair', 'fmap', 'sbref', 'roi', 'pet', 'asl', 't1map']:
             if not bids_dict.get(imtype):
                 config.loggers.interface.info(
                     'No "%s" images found for sub-%s', imtype, self.inputs.subject_id

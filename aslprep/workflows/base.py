@@ -180,6 +180,8 @@ their manuscripts unchanged. It is released under the unchanged
         subject_data['flair'] = []
     if 't2w' in config.workflow.ignore:
         subject_data['t2w'] = []
+    if 't1map' in config.workflow.ignore:
+        subject_data['t1map'] = []
 
     anat_only = config.workflow.anat_only
     # Make sure we always go through these two checks
@@ -639,6 +641,16 @@ tasks and sessions), the following preprocessing was performed.
                 'A T2w image is expected for ASL-to-anatomical coregistration and was not found'
             )
         config.workflow.asl2anat_init = 't2w' if has_t2w else 't1w'
+
+    if subject_data['t1map']:
+        # Determine transform from T1map to T1w/T2w
+        register_t1map_to_t1w = pe.Node(
+            ...,
+            name='register_t1map_to_t1w',
+        )
+        workflow.connect([
+            ...
+        ])  # fmt:skip
 
     for asl_file in subject_data['asl']:
         fieldmap_id = estimator_map.get(asl_file)
